@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project structure
+
+- Business details (name, contact, hours) live in `src/lib/site.ts` and sample shop items in `src/lib/listings.ts`; pages read from these so details change in one place.
+- The shared header/footer wrap every page from `src/routes/__root.tsx`; each page is its own route file with its own head() metadata.
