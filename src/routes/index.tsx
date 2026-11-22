@@ -51,14 +51,14 @@ function Index() {
       <section className="relative overflow-hidden bg-field text-field-foreground">
         <img
           src={heroImage}
-          alt="Framed football shirts, squad-signed match balls and graded cards in museum showcase"
+          alt="Framed English football shirts, signed leather boxing gloves and championship memorabilia"
           className="absolute inset-0 size-full object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-field via-field/85 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-5 py-20 md:py-32">
           <div className="max-w-xl animate-rise">
             <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-accent uppercase backdrop-blur-md">
-              Premier League Heritage
+              Football & Boxing Heritage
             </span>
             <h1 className="mt-5 text-5xl font-extrabold tracking-tight sm:text-6xl md:text-8xl">
               Own a piece of the game.

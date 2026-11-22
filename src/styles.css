@@ -55,43 +55,43 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Legacy Locker: vintage ballpark — scorecard paper, varsity red, trophy gold, outfield green. */
+/* Legacy Locker: premium sports vault — scorecard paper, varsity red, trophy gold, deep luxury crimson. */
 :root {
   --radius: 0.375rem;
   --background: oklch(0.965 0.014 85);
-  --foreground: oklch(0.22 0.02 160);
+  --foreground: oklch(0.18 0.015 25);
   --card: oklch(0.985 0.008 85);
-  --card-foreground: oklch(0.22 0.02 160);
+  --card-foreground: oklch(0.18 0.015 25);
   --popover: oklch(0.985 0.008 85);
-  --popover-foreground: oklch(0.22 0.02 160);
+  --popover-foreground: oklch(0.18 0.015 25);
   --primary: oklch(0.52 0.18 27);
   --primary-foreground: oklch(0.98 0.01 85);
   --secondary: oklch(0.92 0.025 85);
-  --secondary-foreground: oklch(0.22 0.02 160);
+  --secondary-foreground: oklch(0.18 0.015 25);
   --muted: oklch(0.93 0.02 85);
-  --muted-foreground: oklch(0.45 0.025 150);
+  --muted-foreground: oklch(0.44 0.02 25);
   --accent: oklch(0.78 0.13 80);
-  --accent-foreground: oklch(0.22 0.03 60);
-  --field: oklch(0.27 0.045 160);
-  --field-foreground: oklch(0.95 0.02 85);
+  --accent-foreground: oklch(0.20 0.04 25);
+  --field: oklch(0.22 0.075 25);
+  --field-foreground: oklch(0.98 0.01 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0.01 85);
   --border: oklch(0.86 0.025 85);
   --input: oklch(0.86 0.025 85);
   --ring: oklch(0.52 0.18 27);
-  --shadow-card: 0 18px 40px -24px color-mix(in oklab, var(--field) 55%, transparent);
-  --shadow-lift: 0 28px 60px -28px color-mix(in oklab, var(--field) 70%, transparent);
+  --shadow-card: 0 18px 40px -24px color-mix(in oklab, var(--primary) 35%, transparent);
+  --shadow-lift: 0 28px 60px -28px color-mix(in oklab, var(--primary) 45%, transparent);
   --chart-1: oklch(0.52 0.18 27);
-  --chart-2: oklch(0.27 0.045 160);
+  --chart-2: oklch(0.38 0.14 25);
   --chart-3: oklch(0.78 0.13 80);
-  --chart-4: oklch(0.6 0.08 150);
-  --chart-5: oklch(0.45 0.025 150);
+  --chart-4: oklch(0.60 0.16 25);
+  --chart-5: oklch(0.30 0.08 25);
   --sidebar: oklch(0.965 0.014 85);
-  --sidebar-foreground: oklch(0.22 0.02 160);
+  --sidebar-foreground: oklch(0.18 0.015 25);
   --sidebar-primary: oklch(0.52 0.18 27);
   --sidebar-primary-foreground: oklch(0.98 0.01 85);
   --sidebar-accent: oklch(0.92 0.025 85);
-  --sidebar-accent-foreground: oklch(0.22 0.02 160);
+  --sidebar-accent-foreground: oklch(0.18 0.015 25);
   --sidebar-border: oklch(0.86 0.025 85);
   --sidebar-ring: oklch(0.52 0.18 27);
 }

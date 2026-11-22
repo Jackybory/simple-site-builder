@@ -346,7 +346,7 @@ function Shop() {
                         href={getWhatsAppUrl(selected, undefined, currency)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-center text-xs font-bold text-emerald-600 transition-colors hover:bg-emerald-500/20 dark:text-emerald-400"
+                        className="rounded-xl border border-primary/30 bg-primary/10 px-4 py-2.5 text-center text-xs font-bold text-primary transition-colors hover:bg-primary/20"
                       >
                         💬 Chat with Concierge on WhatsApp
                       </a>
