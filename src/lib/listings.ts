@@ -1,6 +1,14 @@
 import jersey from "@/assets/item-jersey.jpg";
 import card from "@/assets/item-card.jpg";
 import football from "@/assets/item-football.jpg";
+import haalandShirt from "@/assets/item-haaland-shirt.jpg";
+import brunoShirt from "@/assets/item-bruno-fernandes.jpg";
+import manUtdSquadShirt from "@/assets/item-man-utd-squad.jpg";
+import salahShirt from "@/assets/item-salah-shirt.jpg";
+import sakaShirt from "@/assets/item-saka-shirt.jpg";
+import chelseaBall from "@/assets/item-chelsea-ball.jpg";
+import tottenhamShirt from "@/assets/item-tottenham-shirt.jpg";
+import premierLeagueBall from "@/assets/item-premier-league-ball.jpg";
 
 export type Listing = {
   id: string;
@@ -33,7 +41,7 @@ export const listings: Listing[] = [
     description:
       "A Manchester United shirt worn in a first-team match and signed by Bruno Fernandes. A centrepiece for any United collection.",
     price: 1850,
-    image: jersey,
+    image: brunoShirt,
     condition: "Match-worn; full condition report on enquiry",
     authentication: authText,
     provenance: "Match details and photo-matching available on request",
@@ -49,7 +57,7 @@ export const listings: Listing[] = [
     description:
       "A home shirt signed by members of the Manchester United first-team squad and presented in a protective frame.",
     price: 1250,
-    image: jersey,
+    image: manUtdSquadShirt,
     condition: "Framed; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -81,7 +89,7 @@ export const listings: Listing[] = [
     description:
       "A Liverpool home shirt signed by Mohamed Salah and presented in a protective frame.",
     price: 1400,
-    image: jersey,
+    image: salahShirt,
     condition: "Framed; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -113,7 +121,7 @@ export const listings: Listing[] = [
     description:
       "A Manchester City home shirt signed by Erling Haaland and presented in a protective frame.",
     price: 1500,
-    image: jersey,
+    image: haalandShirt,
     condition: "Framed; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -129,7 +137,7 @@ export const listings: Listing[] = [
     description:
       "An Arsenal home shirt signed by Bukayo Saka and presented in a protective frame.",
     price: 1100,
-    image: jersey,
+    image: sakaShirt,
     condition: "Framed; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -145,7 +153,7 @@ export const listings: Listing[] = [
     description:
       "A football signed by members of the Chelsea first-team squad, supplied with a display stand.",
     price: 580,
-    image: football,
+    image: chelseaBall,
     condition: "Display-ready; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -161,7 +169,7 @@ export const listings: Listing[] = [
     description:
       "A Tottenham Hotspur home shirt signed by members of the first-team squad and presented in a protective frame.",
     price: 950,
-    image: jersey,
+    image: tottenhamShirt,
     condition: "Framed; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -177,7 +185,7 @@ export const listings: Listing[] = [
     description:
       "A Premier League match-style football carrying multiple player signatures, supplied with a display stand.",
     price: 720,
-    image: football,
+    image: premierLeagueBall,
     condition: "Display-ready; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
