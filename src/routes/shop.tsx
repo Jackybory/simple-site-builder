@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ListingCard } from "@/components/site/ListingCard";
-import { listings, formatPrice, type Listing } from "@/lib/listings";
+import { listings, formatPrice } from "@/lib/listings";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -12,9 +12,9 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: `Shop Memorabilia — ${site.name}` },
-      { name: "description", content: "Browse authenticated signed baseballs, framed jerseys, graded cards and more." },
+      { name: "description", content: "Browse signed Premier League shirts, footballs, trading cards and more." },
       { property: "og:title", content: `Shop Memorabilia — ${site.name}` },
-      { property: "og:description", content: "Browse authenticated signed baseballs, framed jerseys, graded cards and more." },
+      { property: "og:description", content: "Browse signed Premier League shirts, footballs, trading cards and more." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/shop")({
   component: Shop,
 });
 
-const sports: Array<"All" | Listing["sport"]> = ["All", "Baseball", "Basketball", "Football"];
+const clubs = ["All", ...Array.from(new Set(listings.map((item) => item.club)))];
 const categories = ["All", ...Array.from(new Set(listings.map((item) => item.category)))];
 const sortOptions = [
   { value: "featured", label: "Featured" },
@@ -39,7 +39,7 @@ function Shop() {
   const { item: selectedId } = Route.useSearch();
   const navigate = useNavigate({ from: "/shop" });
   const [search, setSearch] = useState("");
-  const [sport, setSport] = useState<(typeof sports)[number]>("All");
+  const [club, setClub] = useState("All");
   const [category, setCategory] = useState("All");
   const [sort, setSort] = useState<SortOption>("featured");
 
@@ -48,23 +48,23 @@ function Shop() {
   const shown = useMemo(() => {
     const query = search.trim().toLowerCase();
     const filtered = listings.filter((l) => {
-      const matchesSport = sport === "All" || l.sport === sport;
+      const matchesClub = club === "All" || l.club === club;
       const matchesCategory = category === "All" || l.category === category;
       const matchesSearch =
         query.length === 0 ||
-        [l.title, l.detail, l.description, l.category].some((t) => t.toLowerCase().includes(query));
-      return matchesSport && matchesCategory && matchesSearch;
+        [l.title, l.detail, l.description, l.category, l.club].some((t) => t.toLowerCase().includes(query));
+      return matchesClub && matchesCategory && matchesSearch;
     });
     if (sort === "price-asc") return [...filtered].sort((a, b) => a.price - b.price);
     if (sort === "price-desc") return [...filtered].sort((a, b) => b.price - a.price);
     return filtered;
-  }, [search, sport, category, sort]);
+  }, [search, club, category, sort]);
 
-  const hasFilters = search.trim().length > 0 || sport !== "All" || category !== "All" || sort !== "featured";
+  const hasFilters = search.trim().length > 0 || club !== "All" || category !== "All" || sort !== "featured";
 
   const clearFilters = () => {
     setSearch("");
-    setSport("All");
+    setClub("All");
     setCategory("All");
     setSort("featured");
   };
@@ -76,7 +76,7 @@ function Shop() {
       <p className="eyebrow">The shop</p>
       <h1 className="mt-3 text-4xl font-extrabold sm:text-6xl md:text-7xl">Every item, authenticated.</h1>
       <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-        Hand-checked pieces from collectors across the country. Browse, view the full details, and enquire about anything you like.
+        Signed and match-worn Premier League memorabilia. Browse, view the full details, and enquire about anything you like.
       </p>
 
       <div className="mt-10 grid gap-4 md:grid-cols-[1fr_auto]">
@@ -86,7 +86,7 @@ function Shop() {
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by title, category or keyword"
+            placeholder="Search by player, club or item"
             className={fieldClass}
           />
         </label>
@@ -102,21 +102,21 @@ function Shop() {
         </label>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-2" role="group" aria-label="Filter by sport">
-        {sports.map((s) => (
+      <div className="mt-6 flex flex-wrap items-center gap-2" role="group" aria-label="Filter by club">
+        {clubs.map((c) => (
           <button
-            key={s}
+            key={c}
             type="button"
-            onClick={() => setSport(s)}
-            aria-pressed={sport === s}
+            onClick={() => setClub(c)}
+            aria-pressed={club === c}
             className={cn(
               "rounded-full border-2 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider transition-colors",
-              sport === s
+              club === c
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-border bg-card text-foreground hover:border-foreground/40",
             )}
           >
-            {s}
+            {c}
           </button>
         ))}
       </div>
@@ -165,7 +165,7 @@ function Shop() {
         <div className="mt-10 rounded-lg border-2 border-border bg-card p-10 text-center">
           <h2 className="text-3xl font-bold">No items match your filters</h2>
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-            Try a different search term, category, or sport.
+            Try a different search term, club, or category.
           </p>
           <button
             type="button"
@@ -195,7 +195,7 @@ function Shop() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="eyebrow">
-                      {selected.sport} · {selected.category}
+                      {selected.club} · {selected.category}
                     </p>
                     <h2 id="listing-detail-title" className="mt-2 text-3xl font-extrabold sm:text-4xl">
                       {selected.title}

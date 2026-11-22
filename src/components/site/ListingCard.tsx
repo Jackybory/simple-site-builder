@@ -20,7 +20,7 @@ export function ListingCard({ item }: { item: Listing }) {
 
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center justify-between gap-2">
-          <p className="eyebrow">{item.sport}</p>
+          <p className="eyebrow">{item.club}</p>
           <span className="rounded-full border border-border px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-muted-foreground">
             Authenticated
           </span>
