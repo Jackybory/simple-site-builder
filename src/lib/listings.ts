@@ -9,6 +9,8 @@ import sakaShirt from "@/assets/item-saka-shirt.jpg";
 import chelseaBall from "@/assets/item-chelsea-ball.jpg";
 import tottenhamShirt from "@/assets/item-tottenham-shirt.jpg";
 import premierLeagueBall from "@/assets/item-premier-league-ball.jpg";
+import liverpoolBall from "@/assets/item-liverpool-ball.jpg";
+import manUtdCard from "@/assets/item-man-utd-card.jpg";
 
 export type Listing = {
   id: string;
@@ -73,7 +75,7 @@ export const listings: Listing[] = [
     description:
       "A Manchester United trading card signed by the player and sealed in a protective slab for display or storage.",
     price: 240,
-    image: card,
+    image: manUtdCard,
     condition: "Sealed in protective slab",
     authentication: authText,
     provenance: "Signing details available on request",
@@ -105,7 +107,7 @@ export const listings: Listing[] = [
     description:
       "A football signed by members of the Liverpool first-team squad, supplied with a display stand.",
     price: 650,
-    image: football,
+    image: liverpoolBall,
     condition: "Display-ready; see enquiry for condition details",
     authentication: authText,
     provenance: "Signing details available on request",
