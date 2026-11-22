@@ -1,12 +1,13 @@
 // Business details shown across the site. Edit these in one place.
+// PLACEHOLDERS: replace the address and phone number with your real details before publishing.
 export const site = {
   name: "Legacy Locker",
   tagline: "Sports memorabilia marketplace",
   description:
-    "Buy and sell authenticated sports memorabilia — signed balls, game-worn jerseys and graded cards from collectors you can trust.",
-  address: { line1: "88 Dugout Lane, Suite 4", line2: "Chicago, IL 60614" },
-  phone: "(312) 555-0187",
-  phoneHref: "tel:+13125550187",
+    "Buy and sell authenticated sports memorabilia — signed shirts, match-worn kit and collectable footballs from collectors you can trust.",
+  address: { line1: "12 Example Street", line2: "London, E1 0AA" },
+  phone: "020 7946 0000",
+  phoneHref: "tel:+442079460000",
   email: "hello@legacylocker.com",
   hours: [
     { days: "Monday – Friday", time: "9:00 am – 6:00 pm" },
