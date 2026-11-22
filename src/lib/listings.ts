@@ -18,7 +18,7 @@ export type Listing = {
   reference: string;
 };
 
-// SAMPLE DATA ONLY. Replace titles, prices, photos and provenance with real stock.
+// SAMPLE DATA ONLY. Replace titles, prices (in GBP), photos and provenance with real stock.
 // Images are shared placeholders until real product photos are uploaded.
 const authText = "Certificate and proof of provenance provided on enquiry";
 const shipText = "Insured, tracked shipping. Ask us for a quote.";
@@ -187,4 +187,4 @@ export const listings: Listing[] = [
 ];
 
 export const formatPrice = (n: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+  new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 }).format(n);
