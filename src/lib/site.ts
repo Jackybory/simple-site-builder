@@ -8,6 +8,7 @@ export const site = {
   address: { line1: "12 Example Street", line2: "London, E1 0AA" },
   phone: "020 7946 0000",
   phoneHref: "tel:+442079460000",
+  whatsappNumber: "442079460000",
   email: "hello@legacylocker.com",
   hours: [
     { days: "Monday – Friday", time: "9:00 am – 6:00 pm" },

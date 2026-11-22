@@ -26,6 +26,8 @@ export type Listing = {
   provenance: string;
   shipping: string;
   reference: string;
+  tag?: string;
+  coa?: string;
 };
 
 // SAMPLE DATA ONLY. Replace titles, prices (in GBP), photos and provenance with real stock.
@@ -49,6 +51,8 @@ export const listings: Listing[] = [
     provenance: "Match details and photo-matching available on request",
     shipping: shipText,
     reference: "LL-2001",
+    tag: "Match-Worn",
+    coa: "Official Club Photo-Matched & Certificate of Provenance",
   },
   {
     id: "man-utd-squad-signed-shirt",
@@ -65,6 +69,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2002",
+    tag: "Squad-Signed",
+    coa: "First-Team Foundation Signing Certificate",
   },
   {
     id: "man-utd-signed-trading-card",
@@ -73,7 +79,7 @@ export const listings: Listing[] = [
     category: "Trading card",
     detail: "Hand-signed · protective slab",
     description:
-      "A Manchester United trading card signed by the player and sealed in a protective slab for display or storage.",
+      "A 2021-22 Panini Prizm EPL Cristiano Ronaldo Manchester United card, hand-signed and encased in a Beckett 10 Gem Mint slab.",
     price: 240,
     image: manUtdCard,
     condition: "Sealed in protective slab",
@@ -81,6 +87,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2003",
+    tag: "Beckett 10",
+    coa: "Beckett Authentication Services #00015006649",
   },
   {
     id: "salah-signed-liverpool-shirt",
@@ -97,6 +105,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2004",
+    tag: "1 of 1 · Framed",
+    coa: "Liverpool FC Official Hologram #LFC-8821",
   },
   {
     id: "liverpool-squad-signed-football",
@@ -113,6 +123,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2005",
+    tag: "Club Legend",
+    coa: "Personally Signed by Steven Gerrard · Authenticated Showcase",
   },
   {
     id: "haaland-signed-man-city-shirt",
@@ -129,6 +141,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2006",
+    tag: "Treble Hero",
+    coa: "Manchester City Official Certificate & Silver Plaque",
   },
   {
     id: "saka-signed-arsenal-shirt",
@@ -145,6 +159,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2007",
+    tag: "Fan Favourite",
+    coa: "Arsenal Direct Official Authentication #ARS-7714",
   },
   {
     id: "chelsea-signed-football",
@@ -161,6 +177,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2008",
+    tag: "Squad-Signed",
+    coa: "Cobham Training Centre Signing Certificate",
   },
   {
     id: "tottenham-signed-shirt",
@@ -177,6 +195,8 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2009",
+    tag: "Framed",
+    coa: "Spurs Official Hologram & Certificate of Authenticity",
   },
   {
     id: "premier-league-signed-match-ball",
@@ -193,8 +213,39 @@ export const listings: Listing[] = [
     provenance: "Signing details available on request",
     shipping: shipText,
     reference: "LL-2010",
+    tag: "Match Ball",
+    coa: "Premier League Official Match-Style Ball Authentication",
   },
 ];
 
-export const formatPrice = (n: number) =>
-  new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 }).format(n);
+export type Currency = "GBP" | "USD" | "EUR";
+
+export const CURRENCY_SYMBOLS: Record<Currency, string> = {
+  GBP: "£",
+  USD: "$",
+  EUR: "€",
+};
+
+const CONVERSION_RATES: Record<Currency, { locale: string; rate: number }> = {
+  GBP: { locale: "en-GB", rate: 1.0 },
+  USD: { locale: "en-US", rate: 1.28 },
+  EUR: { locale: "de-DE", rate: 1.18 },
+};
+
+export const formatPrice = (n: number, currency: Currency = "GBP") => {
+  const { locale, rate } = CONVERSION_RATES[currency] ?? CONVERSION_RATES.GBP;
+  const converted = Math.round(n * rate);
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 0,
+  }).format(converted);
+};
+
+export const getWhatsAppUrl = (item: Listing, customOffer?: number, currency: Currency = "GBP") => {
+  const offerText = customOffer ? ` with an offer of ${formatPrice(customOffer, currency)}` : "";
+  const msg = encodeURIComponent(
+    `Hello Legacy Locker! I am inquiring about "${item.title}" (Ref: ${item.reference}, listed at ${formatPrice(item.price, currency)})${offerText}. Is this still available?`
+  );
+  return `https://wa.me/442079460000?text=${msg}`;
+};
