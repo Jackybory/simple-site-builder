@@ -100,12 +100,12 @@ export const listings: Listing[] = [
   },
   {
     id: "liverpool-squad-signed-football",
-    title: "Liverpool squad-signed football",
+    title: "Signed Steven Gerrard Liverpool football, cased",
     club: "Liverpool",
     category: "Football",
-    detail: "Multiple signatures · display stand",
+    detail: "Hand-signed · acrylic display case",
     description:
-      "A football signed by members of the Liverpool first-team squad, supplied with a display stand.",
+      "An official Liverpool football personally signed by club legend Steven Gerrard, presented in a luxury acrylic display case with an engraved plaque.",
     price: 650,
     image: liverpoolBall,
     condition: "Display-ready; see enquiry for condition details",
