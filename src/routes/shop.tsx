@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ListingCard } from "@/components/site/ListingCard";
-import { listings, type Listing } from "@/lib/listings";
+import { listings, sports } from "@/lib/listings";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -9,17 +9,15 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: `Shop Memorabilia — ${site.name}` },
-      { name: "description", content: "Browse authenticated signed baseballs, framed jerseys, graded cards and more." },
+      { name: "description", content: "Browse authenticated signed baseballs, framed jerseys, graded cards and Premier League kit." },
       { property: "og:title", content: `Shop Memorabilia — ${site.name}` },
-      { property: "og:description", content: "Browse authenticated signed baseballs, framed jerseys, graded cards and more." },
+      { property: "og:description", content: "Browse authenticated signed baseballs, framed jerseys, graded cards and Premier League kit." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Shop,
 });
-
-const sports: Array<"All" | Listing["sport"]> = ["All", "Baseball", "Basketball", "Football"];
 
 function Shop() {
   const [sport, setSport] = useState<(typeof sports)[number]>("All");
